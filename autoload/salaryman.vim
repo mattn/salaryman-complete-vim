@@ -21,7 +21,7 @@ let s:dict = {
 \ 'おしごも' : {'match' : '\(おしごも\|oshigomo\|osigomo\)', 'cand' : 'お叱りはごもっとも！'},
 \ 'さすござ' : {'match' : '\(さすござ\|sasugoza\)', 'cand' : '流石でございます！'},
 \ 'にぽいち' : {'match' : '\(にぽいち\|nipoichi\)', 'cand' : 'いよ、日本一！'},
-\ 'おみご' : {'match' : '\(おみご\|omigo\)', 'cand' : ' お見事でございます！'},
+\ 'おみご' : {'match' : '\(おみご\|omigo\)', 'cand' : 'お見事でございます！'},
 \ 'これいぽ' : {'match' : '\(これいぽ\|koreipo\)', 'cand' : 'これは一本取られましたな！'},
 \ 'かないま' : {'match' : '\(かないま\|kanaima\)', 'cand' : '敵いませんな！'},
 \ 'ないすしょ' : {'match' : '\(ないすしょ\|naisusho\|naisusyo\)', 'cand' : 'ナイスショット！'},
@@ -34,7 +34,7 @@ function! salaryman#Complete(findstart, base)
     for val in values(s:dict)
       let m = matchstr(lhs, val['match'])
       if len(m) > 0
-        return col('.') - len(m) - 1
+        return len(lhs) - len(m)
       endif
     endfor
     let lhs = matchstr(lhs, '.*[、。，．・？！゛゜ヽヾゝゞ々ー）］｝」』!),.:;?\]}｡｣､･ｰﾞﾟ（［｛「『(\[{｢]')
