@@ -39,7 +39,7 @@ function! salaryman#Complete(findstart, base)
     endfor
     let lhs = matchstr(lhs, '.*[、。，．・？！゛゜ヽヾゝゞ々ー）］｝」』!),.:;?\]}｡｣､･ｰﾞﾟ（［｛「『(\[{｢]')
     if len(lhs)
-      return strdisplaywidth(lhs)
+      return strlen(lhs)
     endif
     return 0
   else
