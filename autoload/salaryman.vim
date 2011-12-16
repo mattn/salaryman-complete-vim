@@ -34,7 +34,7 @@ function! salaryman#Complete(findstart, base)
     for val in values(s:dict)
       let m = matchstr(lhs, val['match'])
       if len(m) > 0
-        return col('.') - strdisplaywidth(m) - 1
+        return col('.') - len(m) - 1
       endif
     endfor
     let lhs = matchstr(lhs, '.*[、。，．・？！゛゜ヽヾゝゞ々ー）］｝」』!),.:;?\]}｡｣､･ｰﾞﾟ（［｛「『(\[{｢]')
